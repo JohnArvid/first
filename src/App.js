@@ -3,16 +3,18 @@ import './App.css';
 
 class App extends Component {
   constructor() {
-    super();
+    super()
 
     // https://jsonplaceholder.typicode.com/users
 
     this.state = {
       monsters: [],
     };
+    console.log('constructor');
   }
 
   componentDidMount() {
+    console.log('componentDidMount');
     fetch('https://jsonplaceholder.typicode.com/users')
       .then(res => res.json())
       .then(users => this.setState(() => {
@@ -21,6 +23,7 @@ class App extends Component {
   }
 
   render() {
+    console.log('render');
     return (
       <div className="App">
         {
