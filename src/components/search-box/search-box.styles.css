@@ -1,4 +1,5 @@
 .search-box {
+    appearance: auto;
     -webkit-appearance: none;
     border: none;
     outline: none;
