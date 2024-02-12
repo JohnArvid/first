@@ -14,7 +14,6 @@ class App extends Component {
       monsters: [],
       searchField: '',
     };
-    console.log('constructor');
   }
 
   componentDidMount() {
@@ -34,7 +33,6 @@ class App extends Component {
   }
 
   render() {
-    console.log('render');
 
     const { monsters, searchField } = this.state;
     const { onSearchChange } = this;
@@ -44,7 +42,8 @@ class App extends Component {
     });
 
     return (
-      <div className="App">
+      <div className='App'>
+        <h1 className='app-title'>Robots</h1>
         <SearchBox 
           className = 'monster-search-box'
           onChangeHandler = {onSearchChange}
