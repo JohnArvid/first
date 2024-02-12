@@ -12,3 +12,11 @@ body {
    );
    text-align: center;
 }
+
+.app-title {
+  font-family: Consolas, 'Courier New', Courier, monospace;
+  font-size: 10em;
+  padding: 3% 8%;
+  margin: 0 auto;
+  color: aliceblue;
+}
