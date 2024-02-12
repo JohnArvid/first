@@ -7,7 +7,7 @@ class SearchBox extends Component {
         type='search'
         className='search-box' 
         placeholder='Search monsters'
-        onChange={onSearchChange} 
+        onChange={this.props.onChangeHandler} 
 
       />
     )
