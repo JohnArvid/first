@@ -5,16 +5,16 @@ import './card-list.styles.css';
 class CardList extends Component {
     
     render() {
-      const { monsters } = this.props;
+      const { robots } = this.props;
       
       return (
         <div className='card-list'>
-          {monsters.map(monster => {
-            const {name, email, id} = monster;
+          {robots.map(robot => {
+            const {name, email, id} = robot;
             
             return (
               <Card 
-                monster = {monster}
+                robot = {robot}
               /> 
             )
           })}
