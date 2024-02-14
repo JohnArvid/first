@@ -1,19 +1,26 @@
-import {Component} from 'react';
+import { useState } from 'react';
 
 import CardList from './components/card-list/card-list.component';
 import './App.css';
 import SearchBox from './components/search-box/search-box.component';
 
 const App = () => {
+  const [searchField, setSearchfield] = useState('');
+
+  onSearchChange = (e) => {
+    const searchFieldString = e.target.value.toLocaleLowerCase();
+    setSearchfield(searchFieldString);
+  }
+
   return (
     <div className='App'>
       <h1 className='app-title'>Robots</h1>
-      {/* <SearchBox 
+       <SearchBox 
         className = 'robot-search-box'
         onChangeHandler = {onSearchChange}
         placeholder = 'Search robots'
       />
-      <CardList robots = {filteredrobots}/> */}
+      {/* <CardList robots = {filteredrobots}/> */}
     </div>
   )
 }
