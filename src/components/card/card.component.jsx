@@ -1,25 +1,22 @@
-import { Component } from "react";
 import './card.styles.css';
 
 
-class Card extends Component {
+const Card = ({robot}) => {
+  
+  return (
+    <div 
+    key= {robot.id}
+    className='card-container'
+  >
+    <img 
+      alt={`robot  ${robot.name}`}
+      src={`https://robohash.org/${robot.id}?set=set3&size=180x180`} 
+    />
+    <h2>{robot.name}</h2>
+    <p>{robot.email}</p>
+  </div>
+  )
 
-    render() {
-        const {name, email, id} = this.props.robot;
-        return (
-            <div 
-            key= {id}
-            className='card-container'
-          >
-            <img 
-              alt={`robot  ${name}`}
-              src={`https://robohash.org/${id}?set=set3&size=180x180`} 
-            />
-            <h2>{name}</h2>
-            <p>{email}</p>
-          </div>
-        )
-    }
 }
 
 export default Card;
