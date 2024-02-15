@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 import CardList from './components/card-list/card-list.component';
 import './App.css';
@@ -6,11 +6,24 @@ import SearchBox from './components/search-box/search-box.component';
 
 const App = () => {
   const [searchField, setSearchfield] = useState('');
+  const [robots, setRobots] = useState([]);
 
-  onSearchChange = (e) => {
+  useEffect(()=> {
+    fetch('https://jsonplaceholder.typicode.com/users')
+    .then(res => res.json())
+    .then(users => setRobots(users)
+    );
+  }, []);
+ 
+  
+  const onSearchChange = (e) => {
     const searchFieldString = e.target.value.toLocaleLowerCase();
     setSearchfield(searchFieldString);
   }
+
+  const filteredrobots = robots.filter((robot) => {
+    return robot.name.toLocaleLowerCase().includes(searchField);
+  });
 
   return (
     <div className='App'>
@@ -20,7 +33,7 @@ const App = () => {
         onChangeHandler = {onSearchChange}
         placeholder = 'Search robots'
       />
-      {/* <CardList robots = {filteredrobots}/> */}
+      <CardList robots = {filteredrobots}/>
     </div>
   )
 }
